@@ -12,6 +12,7 @@ import java.text.ParseException;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -44,8 +45,8 @@ class ConsumerApplicationTests {
 		mockMvc.perform(post("/enrich")
 				.contentType(APPLICATION_JSON)
 				.content(asJsonString(event)))
-				.andExpect(MockMvcResultMatchers.status().isOk())
-				.andExpect(MockMvcResultMatchers.content().json(EXPECTED_PAYLOAD));
+				.andExpect(status().isOk())
+				.andExpect(content().json(EXPECTED_PAYLOAD));
 	}
 	private String asJsonString(Object o) {
 		try {
