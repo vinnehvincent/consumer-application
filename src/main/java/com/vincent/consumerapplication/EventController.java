@@ -14,6 +14,8 @@ public class EventController {
         Payload payload = new Payload(event.getAccountNumber(),event.getTransactionAmount(),
                                     event.getTransactionEffectiveDate(),event.getTransactionTraceIdentifier(),
                                     event.isMarketingConsent(),event.isKycIndicator());
+        payload.setRuleId(1L);
+        payload.setRuleResult("negative");
         return ResponseEntity.ok(payload);
     }
 }

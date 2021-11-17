@@ -9,6 +9,8 @@ public class Payload implements Serializable {
     private String transactionTraceIdentifier;
     private boolean marketingConsent;
     private boolean kycIndicator;
+    private Long ruleId;
+    private String ruleResult;
     public Payload() {
 
     }
@@ -45,5 +47,21 @@ public class Payload implements Serializable {
 
     public boolean isKycIndicator() {
         return kycIndicator;
+    }
+
+    public Long getRuleId() {
+        return ruleId;
+    }
+
+    public void setRuleId(Long ruleId) {
+        this.ruleId = ruleId;
+    }
+
+    public String getRuleResult() {
+        return ruleResult;
+    }
+
+    public void setRuleResult(String ruleResult) {
+        this.ruleResult = ruleResult;
     }
 }
