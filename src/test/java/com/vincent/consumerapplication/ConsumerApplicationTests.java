@@ -43,9 +43,9 @@ class ConsumerApplicationTests {
 	void shouldAcceptAnEventAndReturnAnEnrichedPayload() throws Exception {
 		mockMvc.perform(post("/enrich")
 				.contentType(APPLICATION_JSON)
-				.contentType(asJsonString(event)))
+				.content(asJsonString(event)))
 				.andExpect(MockMvcResultMatchers.status().isOk())
-				.andExpect(MockMvcResultMatchers.jsonPath("$").value(EXPECTED_PAYLOAD));
+				.andExpect(MockMvcResultMatchers.content().json(EXPECTED_PAYLOAD));
 	}
 	private String asJsonString(Object o) {
 		try {
