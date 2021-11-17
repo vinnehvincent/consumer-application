@@ -8,7 +8,7 @@ import java.util.Date;
 public class Event implements Serializable {
     private String accountNumber;
     private double transactionAmount;
-    private Date transactionEffectiveDate;
+    private String transactionEffectiveDate;
     private String transactionTraceIdentifier;
     private boolean marketingConsent;
     private boolean kycIndicator;
@@ -20,7 +20,7 @@ public class Event implements Serializable {
                  String transactionTraceIdentifier, boolean marketingConsent, boolean kycIndicator) throws ParseException {
         this.accountNumber = accountNumber;
         this.transactionAmount = transactionAmount;
-        this.transactionEffectiveDate = new SimpleDateFormat("MM-dd-yyyy").parse(transactionEffectiveDate);
+        this.transactionEffectiveDate = transactionEffectiveDate;
         this.transactionTraceIdentifier = transactionTraceIdentifier;
         this.marketingConsent = marketingConsent;
         this.kycIndicator = kycIndicator;
@@ -34,7 +34,7 @@ public class Event implements Serializable {
         return transactionAmount;
     }
 
-    public Date getTransactionEffectiveDate() {
+    public String getTransactionEffectiveDate() {
         return transactionEffectiveDate;
     }
 
