@@ -44,7 +44,7 @@ class ConsumerApplicationTests {
 	void shouldAcceptAnEventAndReturnAnEnrichedPayload() throws Exception {
 		/*
 			The acceptance test to check that the application accepts an event and returns the expected payload
-			It shows that the application can perform step 1 and step 4 of the procedure.
+			It shows that the application can perform Task 1 and Task 4.
 		 */
 		mockMvc.perform(post("/enrich")
 				.contentType(APPLICATION_JSON)
