@@ -16,6 +16,10 @@ public class EventService {
     }
 
     private APIResponse getAPIResponse() throws JsonProcessingException {
+        /*
+            Decided to use a hardcoded response from API. A RestTemplate can be used to do a call to a live API
+            and map the response in a similar manner.
+         */
         final ObjectMapper mapper = new ObjectMapper();
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         String json = "{ \n" +
