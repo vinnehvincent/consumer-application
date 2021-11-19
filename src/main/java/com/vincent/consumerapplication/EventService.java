@@ -40,4 +40,8 @@ public class EventService {
                 "} ";
         return mapper.readValue(json,APIResponse.class);
     }
+
+    public Rule checkDecision(Event event) {
+        return (!event.isKycIndicator()|| !event.isMarketingConsent()) ? new Rule(1L,"negative"): null;
+    }
 }
