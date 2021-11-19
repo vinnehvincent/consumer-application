@@ -13,7 +13,7 @@ public class Event implements Serializable {
     private String transactionTraceIdentifier;
     private boolean marketingConsent;
     private boolean kycIndicator;
-    private String granted;
+    private boolean granted;
 
     public Event() {
     }
@@ -52,8 +52,12 @@ public class Event implements Serializable {
         return kycIndicator;
     }
 
-    public void setGranted(String granted) {
+    public void setGranted(boolean granted) {
         this.granted = granted;
+    }
+
+    public boolean getGranted() {
+        return this.granted;
     }
 
     @Override

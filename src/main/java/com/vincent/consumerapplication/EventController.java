@@ -1,5 +1,6 @@
 package com.vincent.consumerapplication;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,13 +15,13 @@ public class EventController {
     EventService eventService;
 
     @PostMapping
-    public ResponseEntity<Payload> enrichEvent(@RequestBody Event event){
+    public ResponseEntity<Payload> enrichEvent(@RequestBody Event event) throws JsonProcessingException {
         Event enrichedEvent = eventService.enrichEvent(event);
         Payload payload = new Payload(event.getAccountNumber(),event.getTransactionAmount(),
                                     event.getTransactionEffectiveDate(),event.getTransactionTraceIdentifier(),
                                     event.isMarketingConsent(),event.isKycIndicator());
         payload.setRuleId(1L);
-        payload.setRuleResult("negative");
+        payload.setRuleResult("");
         return ResponseEntity.ok(payload);
     }
 }
