@@ -17,6 +17,7 @@ public class EventController {
     @PostMapping
     public ResponseEntity<Payload> enrichEvent(@RequestBody Event event) throws JsonProcessingException {
         Event enrichedEvent = eventService.enrichEvent(event);
+        Rule rule = eventService.checkDecision(enrichedEvent);
         Payload payload = new Payload(event.getAccountNumber(),event.getTransactionAmount(),
                                     event.getTransactionEffectiveDate(),event.getTransactionTraceIdentifier(),
                                     event.isMarketingConsent(),event.isKycIndicator());

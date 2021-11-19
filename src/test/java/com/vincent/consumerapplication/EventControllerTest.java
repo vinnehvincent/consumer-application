@@ -34,6 +34,7 @@ public class EventControllerTest {
                 .content(asJsonString(event)))
                 .andExpect(status().isOk());
         Mockito.verify(eventService,Mockito.times(1)).enrichEvent(event);
+        Mockito.verify(eventService,Mockito.times(1)).checkDecision(returnedEvent);
     }
 
     private String asJsonString(Object o) {
