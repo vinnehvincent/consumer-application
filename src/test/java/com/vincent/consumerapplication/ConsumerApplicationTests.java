@@ -41,7 +41,7 @@ class ConsumerApplicationTests {
 	void contextLoads() {
 	}
 	@Test
-	void shouldAcceptAnEventAndReturnAnEnrichedPayload() throws Exception {
+	void shouldAcceptAnEventAndReturnAPayloadWithADecision() throws Exception {
 		/*
 			The acceptance test to check that the application accepts an event and returns the expected payload
 			It shows that the application can perform Task 1 and Task 4.

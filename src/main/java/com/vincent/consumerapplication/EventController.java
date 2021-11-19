@@ -21,8 +21,8 @@ public class EventController {
         Payload payload = new Payload(event.getAccountNumber(),event.getTransactionAmount(),
                                     event.getTransactionEffectiveDate(),event.getTransactionTraceIdentifier(),
                                     event.isMarketingConsent(),event.isKycIndicator());
-        payload.setRuleId(1L);
-        payload.setRuleResult("");
+        payload.setRuleId(rule.getId());
+        payload.setRuleResult(rule.getResult());
         return ResponseEntity.ok(payload);
     }
 }

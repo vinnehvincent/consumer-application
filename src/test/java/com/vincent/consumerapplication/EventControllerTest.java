@@ -29,6 +29,7 @@ public class EventControllerTest {
                 "VODSWMTTTRBC",false,true);
         returnedEvent.setGranted(false);
         Mockito.when(eventService.enrichEvent(event)).thenReturn(returnedEvent);
+        Mockito.when(eventService.checkDecision(returnedEvent)).thenReturn(new Rule(1L,"negative"));
         mockMvc.perform(post("/enrich")
                 .contentType(APPLICATION_JSON)
                 .content(asJsonString(event)))
